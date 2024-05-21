@@ -24,7 +24,7 @@ def Agregar(ListaDeLaInformación): # Pide la lista de información para saber e
             elif OpciónElegida == 3:
                 break
             else:
-                print("Opción no valida. Intentalo de nuevo.")
+                raise Exception
         except:
             print("Opción no valida. Intentalo de nuevo.")
     ProductosAGuardar = []
