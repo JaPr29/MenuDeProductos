@@ -1,0 +1,16 @@
+[
+    {
+        "Nombre": "Detergente Cif",
+        "Precio": "1500",
+        "Stock": "24",
+        "ID": "#1",
+        "Secci\u00f3n": "Limpieza"
+    },
+    {
+        "Nombre": "Lavandina Ayud\u00edn",
+        "Precio": "2000",
+        "Stock": "18",
+        "ID": "#2",
+        "Secci\u00f3n": "Limpieza"
+    }
+]
