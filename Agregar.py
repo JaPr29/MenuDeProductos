@@ -15,13 +15,11 @@ except: # En caso de que no exista, crea la información.
 def Agregar(ListaDeLaInformación): # Pide la lista de información para saber el usuario. // Es el menú de la función.
     while True:
         try:
-            print(f"Hola {ListaDeLaInformación[1]}, este es el menú para agregar un nuevo producto, dime ¿qué quieres hacer? \n1. Agregar un nuevo producto \n2. Listar los Productos \n3. Volver al menú principal")
+            print(f"Hola {ListaDeLaInformación[1]}, este es el menú para agregar un nuevo producto, dime ¿qué quieres hacer? \n1. Agregar un nuevo producto \n2. Volver al menú principal")
             OpciónElegida = int(input("Elige la opción que deseas hacer: "))
             if OpciónElegida == 1:
                 AgregarProducto()
             elif OpciónElegida == 2:
-                Listar.Listar(ListaDeLaInformación)
-            elif OpciónElegida == 3:
                 break
             else:
                 raise Exception
@@ -53,7 +51,7 @@ def AgregarProducto(): # Cuando se selecciona la opción de agregar un nuevo pro
             Sección = input("Dime la sección del nuevo producto: ")
             while not Sección.isalpha():
                 Sección = input("Por favor, introduce una sección válida: ")
-            Productos.append(Clases.Producto(Nombre, Precio, Stock, ID, Sección))
+            Productos.append(Clases.Producto(Nombre, Precio, Stock, f"#{ID}", Sección))
             print("El nuevo producto ha sido anadido a la lista exitosamente.\n")
             break
         except:
