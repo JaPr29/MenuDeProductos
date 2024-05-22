@@ -3,28 +3,28 @@
         "Nombre": "Detergente Cif",
         "Precio": "1500",
         "Stock": "22",
-        "ID": "###1",
+        "ID": "#1",
         "Secci\u00f3n": "Limpieza"
     },
     {
         "Nombre": "Lavandina Ayud\u00edn",
         "Precio": "2000",
         "Stock": "18",
-        "ID": "###2",
+        "ID": "#2",
         "Secci\u00f3n": "Limpieza"
     },
     {
         "Nombre": "Desodorante AXE",
         "Precio": "2420",
         "Stock": "11",
-        "ID": "###3",
+        "ID": "#3",
         "Secci\u00f3n": "Higiene"
     },
     {
         "Nombre": "Cuchillo Tramontina",
         "Precio": "3200",
         "Stock": "64",
-        "ID": "##4",
+        "ID": "#4",
         "Secci\u00f3n": "Cocina"
     }
 ]
