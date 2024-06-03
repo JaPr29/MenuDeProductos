@@ -1,6 +1,7 @@
 import json
-import Listar
 import Clases
+import re
+import Listar
 
 try: # Importa la información de los productos y los pasa a una lista.
     with open("Productos.json", "r") as ImportarArchivoProductos:
@@ -15,11 +16,13 @@ except: # En caso de que no exista, crea la información.
 def Agregar(ListaDeLaInformación): # Pide la lista de información para saber el usuario. // Es el menú de la función.
     while True:
         try:
-            print(f"Hola {ListaDeLaInformación[1]}, este es el menú para agregar un nuevo producto, dime ¿qué quieres hacer? \n1. Agregar un nuevo producto \n2. Volver al menú principal")
+            print(f"\nHola {ListaDeLaInformación[1]}, este es el menú para agregar un nuevo producto, dime ¿qué quieres hacer? \n1. Agregar un nuevo producto. \n2. Mostrar los productos actuales. \n3. Volver al menú principal.")
             OpciónElegida = int(input("Elige la opción que deseas hacer: "))
             if OpciónElegida == 1:
                 AgregarProducto()
             elif OpciónElegida == 2:
+                Listar.MostrarListado(ListaDeLaInformación)
+            elif OpciónElegida == 3:
                 break
             else:
                 raise Exception
@@ -34,22 +37,25 @@ def Agregar(ListaDeLaInformación): # Pide la lista de información para saber e
     print("Se han guardado los datos.")
 
 def AgregarProducto(): # Cuando se selecciona la opción de agregar un nuevo producto se inicia esta función, pide los datos y los añade a la lista.
+    PatternNombre = re.compile(r"^[A-Z]{1}[a-z]+ [A-Z]{1}[a-z]+[a-z]$|^[A-Z]{1}[a-z]+ [A-Z]{1}[a-z]+ [A-Z]{1}[a-z]+[a-z]$|^[A-Z]{1}[a-z]+ [A-Z]{1}[a-z]+ [A-Z]{1}[a-z]+ [A-Z]{1}[a-z]+[a-z]$")
+    PatternPrecioStockId = re.compile(r'^[0-9]+$')
+    PatternSección = re.compile(r"^[A-Z]{1}[a-z]+$|^[A-Z]{1}[a-z]+[ ]{1}[A-Z]{1}[a-z]+[a-z]$")
     while True:
         try:
             Nombre = input("Dime el nombre del nuevo producto: ")
-            while Nombre.isnumeric():
+            while not PatternNombre.search(Nombre):
                 Nombre = input("Por favor, introduce un nombre válido: ")
             Precio = input("Dime el precio del nuevo producto: ")
-            while not Precio.isnumeric():
+            while not PatternPrecioStockId.search(Precio):
                 Precio = input("Por favor, introduce un precio válido: ")
             Stock = input("Dime el stock del nuevo producto: ")
-            while not Stock.isnumeric():
+            while not PatternPrecioStockId.search(Stock):
                 Stock = input("Por favor, introduce un stock válido: ")
             ID = input("Dime el ID del nuevo producto: ")
-            while not ID.isnumeric():
+            while not PatternPrecioStockId.search(ID):
                 ID = input("Por favor, introduce un ID válido: ")
             Sección = input("Dime la sección del nuevo producto: ")
-            while not Sección.isalpha():
+            while not PatternSección.search(Sección):
                 Sección = input("Por favor, introduce una sección válida: ")
             Productos.append(Clases.Producto(Nombre, Precio, Stock, f"#{ID}", Sección))
             print("El nuevo producto ha sido anadido a la lista exitosamente.\n")
