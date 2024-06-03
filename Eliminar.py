@@ -27,7 +27,8 @@ def Eliminar(información):
                 break
             else:
                 raise Exception
-        except:
+        except Exception as error:
+            print(error)
             print("Opción no valida. Intentalo de nuevo.")
     ProductosAGuardar = []
     for producto2 in Productos: # Pasa los productos de una lista a una lista de diccionarios para que pueda ser convertida a JSON.
@@ -43,12 +44,22 @@ def EliminarProducto(Productos):
         Buscar = input("Dime el nombre del producto que quieres eliminar: ")
         for producto in Productos:
             if Buscar == producto.nombre:
-                print("Se ha encontrado el producto.")
-                ChequeoDeSeguridad = input("Está seguro de querer eliminar el producto?\n 1. Si \n 2. No\n Elige una Opción: ")
-                if ChequeoDeSeguridad == "1":
-                    Productos.pop()
-                    print("Se ha eliminado el producto exitosamente.")
-                if ChequeoDeSeguridad == "2":
-                    print("No se realizaron cambios.")
-                return ""
+                while True:
+                    print("Se ha encontrado el producto.")
+                    ChequeoDeSeguridad = input("Está seguro de querer eliminar el producto?\n 1. Si \n 2. No\n Elige una Opción: ")
+                    if ChequeoDeSeguridad == "1":
+                        Productos.remove(producto)
+                        print("Se ha eliminado el producto exitosamente.")
+                        ProductosAGuardar = []
+                        for producto2 in Productos: # Pasa los productos de una lista a una lista de diccionarios para que pueda ser convertida a JSON.
+                            ProductosAGuardar.append({"Nombre": producto2.nombre, "Precio": producto2.precio, "Stock": producto2.stock, "ID": producto2.ID, "Sección": producto2.Sección})
+                        JSON = json.dumps(ProductosAGuardar, indent=4) # Convierte la lista de diccionarios a JSON.
+                        with open("Productos.json", "w") as GuardarProductos: # Guarda la lista.
+                            GuardarProductos.write(JSON)
+                        return ""
+                    if ChequeoDeSeguridad == "2":
+                        print("No se realizaron cambios.")
+                        return ""
+                    else :
+                        print("Opcion no valida. Intentalo de nuevo.")
         print("No se ha encontrado el producto.")

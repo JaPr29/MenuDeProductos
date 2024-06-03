@@ -7,7 +7,7 @@ patternContraseña = re.compile("[ ]+")
 def Opciones(información):
     while True:
         
-            print(f"\nHola {información[1]}, estas son las opciones disponibles: \n1. Eliminar empresa \n2. Modificar empresa, usuario u contraseña \n3. Crear preguntas de seguridad. \n5. Volver al menú principal")
+            print(f"\nHola {información[1]}, estas son las opciones disponibles: \n1. Eliminar empresa \n2. Modificar empresa, usuario u contraseña \n3. Crear preguntas de seguridad. \n4. Volver al menú principal")
             OpciónElegida = int(input("¿Qué deseas hacer?: "))
             if OpciónElegida == 1: 
                 Opción1(información)
@@ -19,7 +19,7 @@ def Opciones(información):
                 print("Hasta pronto."); 
                 break
             else: 
-                raise Exception
+                print("Opcion inválida.")
         
     with open("información.json", "w") as GuardarInformación:
         GuardarInformación.write(json.dumps(información))

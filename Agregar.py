@@ -37,7 +37,7 @@ def Agregar(ListaDeLaInformación): # Pide la lista de información para saber e
     print("Se han guardado los datos.")
 
 def AgregarProducto(): # Cuando se selecciona la opción de agregar un nuevo producto se inicia esta función, pide los datos y los añade a la lista.
-    PatternNombre = re.compile(r"^[A-Z]{1}[a-z]+ [A-Z]{1}[a-z]+[a-z]$|^[A-Z]{1}[a-z]+ [A-Z]{1}[a-z]+ [A-Z]{1}[a-z]+[a-z]$|^[A-Z]{1}[a-z]+ [A-Z]{1}[a-z]+ [A-Z]{1}[a-z]+ [A-Z]{1}[a-z]+[a-z]$")
+    PatternNombre = re.compile(r"^[A-Z]{1}[a-z]+ [A-Z0-9]{1}[a-z0-9]+[a-z0-9]$|^[A-Z]{1}[a-z]+ [A-Z0-9]{1}[a-z0-9]+ [A-Z0-9]{1}[a-z0-9]+[a-z0-9]$|^[A-Z]{1}[a-z]+ [A-Z0-9]{1}[a-z0-9]+ [A-Z0-9]{1}[a-z0-9]+ [A-Z0-9]{1}[a-z0-9]+[a-z0-9]$")
     PatternPrecioStockId = re.compile(r'^[0-9]+$')
     PatternSección = re.compile(r"^[A-Z]{1}[a-z]+$|^[A-Z]{1}[a-z]+[ ]{1}[A-Z]{1}[a-z]+[a-z]$")
     while True:

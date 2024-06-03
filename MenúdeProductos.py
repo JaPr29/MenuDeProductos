@@ -8,7 +8,7 @@ import Opciones
 import Ayuda
 import re
 import sys
-patternEmpresa = re.compile(r"[ ]{2}|^[ ]|[ ]$|[?'!@#$%^&*¡¿]+|^\d+$") # El primero es para evitar multiples espacios, el segundo para evitar espacios al principio, el tercero para evitar al final, el cuarto para evitar caracteres extraños, el quinto para evitar que sea solo números.
+patternEmpresa = re.compile(r"[ ]{2}|^[ ]|[ ]$|[?'!@#$%^&*¡¿]+|^\d+$|^[a-z]") # El primero es para evitar multiples espacios, el segundo para evitar espacios al principio, el tercero para evitar al final, el cuarto para evitar caracteres extraños, el quinto para evitar que sea solo números.
 patternUsuario = re.compile(r'^[A-Z]{1}[a-z]+[a-z]$|^[A-Z]{1}[a-z]+[ ]{1}[A-Z]{1}[a-z]+[a-z]$') # Permite poner nombre y apellido, pero solo si está especificado con mayúscula en cada inicio de palabra y solo dos palabras están disponibles.
 patternContraseña = re.compile("[ ]+") # Evita que la contraseña pueda llevar espacios.
 Contraseñaerrorcontador = 1
@@ -68,8 +68,8 @@ except: # En caso de que sea la primera vez que se inicia, crea la información.
     información = []
     información.append(input("Bienvenido al menú de productos, por favor ingrese el nombre de su empresa: "))
     while información[0].strip() == "" or patternEmpresa.search(información[0]):
-        información[0] = input("Por favor, ingrese una empresa válida.\nNo se aceptarán espacios innecesarios o caracteres especiales: ")
-    información.append(input("Por favor, ingrese su usuario: "))
+        información[0] = input("Por favor, ingrese una empresa válida.\nNo se aceptarán espacios innecesarios o caracteres especiales, ingrese el primer caracter en mayúsculas: ")
+    información.append(input("Por favor, ingrese su usuario (Solo nombre y apellido o solo nombre): "))
     while not patternUsuario.search(información[1]):
         información[1] = input("Por favor, ingrese un usuario válido:\nNo se aceptarán espacios innecesarios, números o caracteres especiales: ")
     información.append(input("Por favor, ingrese su contraseña, en caso de no querer una, toque enter: "))

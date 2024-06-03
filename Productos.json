@@ -21,10 +21,17 @@
         "Secci\u00f3n": "Higiene"
     },
     {
-        "Nombre": "Cuchillo Tramontina",
-        "Precio": "3200",
-        "Stock": "64",
-        "ID": "#4",
-        "Secci\u00f3n": "Cocina"
+        "Nombre": "Cerveza Tomatela",
+        "Precio": "1200",
+        "Stock": "300",
+        "ID": "#362024",
+        "Secci\u00f3n": "Bebidas Alcoholicas"
+    },
+    {
+        "Nombre": "Cerveza 361",
+        "Precio": "1500",
+        "Stock": "23",
+        "ID": "#153",
+        "Secci\u00f3n": "Bebidas Alcoholicas"
     }
 ]
