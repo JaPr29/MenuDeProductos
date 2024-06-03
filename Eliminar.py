@@ -1,4 +1,5 @@
 import json
+import Listar
 import Clases
 
 def Eliminar(información):	
@@ -16,11 +17,13 @@ def Eliminar(información):
     
     while True: # Si existe la lista y no está vacía, se muestra el menú.
         try:
-            print(f"Hola {información[1]}, este es el menú para eliminar un Producto, dime ¿Qué quieres hacer? \n1. Eliminar un Producto \n2. Volver al menú principal")
+            print(f"\nHola {información[1]}, este es el menú para eliminar un Producto, dime ¿Qué quieres hacer? \n1. Eliminar un Producto. \n2. Consultar listado. \n3. Volver al menú principal.")
             OpciónElegida = int(input("Elige la función que deseas hacer: "))
             if OpciónElegida == 1:
                 EliminarProducto(Productos)
             elif OpciónElegida == 2:
+                Listar.MostrarListado(información)
+            elif OpciónElegida == 3:
                 break
             else:
                 raise Exception
